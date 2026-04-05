@@ -128,6 +128,7 @@ export default function AIConsultingLanding() {
   const navLinks = [
     { label: "Services", href: "#services" },
     { label: "Case Study", href: "#case-study" },
+    { label: "Portfolio", href: "#portfolio" },
     { label: "Process", href: "#process" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -474,6 +475,141 @@ export default function AIConsultingLanding() {
                 Completed in one session
               </div>
             </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ━━━ PORTFOLIO ━━━ */}
+      <Section id="portfolio" className="relative z-10 py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-cyan-400 text-sm font-medium tracking-wide uppercase mb-3">Portfolio</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Projects That Ship</h2>
+            <p className="text-white/40 mt-4 max-w-2xl mx-auto">
+              Real systems in production — not demos. Every project built with testing, monitoring, and documentation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {[
+              {
+                name: "Quant Platform",
+                domain: "FinTech",
+                tagline: "15-strategy algorithmic trading platform",
+                metrics: ["2.5 → 7.5 Score", "280+ Tests", "20 Packages"],
+                desc: "Multi-domain quant system with real-time Telegram alerts, comprehensive monitoring, and 15 integrated trading strategies.",
+                accent: "#06b6d4",
+              },
+              {
+                name: "Haven",
+                domain: "Consumer Safety",
+                tagline: "AI-powered child safety platform",
+                metrics: ["87 Endpoints", "190 Tests", "6 AI Features"],
+                desc: "Full-stack parental control platform with COPPA/KOSA compliance, content filtering, and real-time threat monitoring.",
+                accent: "#10b981",
+              },
+              {
+                name: "PriorTox",
+                domain: "Healthcare",
+                tagline: "5-agent oncology prior auth engine",
+                metrics: ["5 AI Agents", "RAG System", "Oncology-Grade"],
+                desc: "Multi-agent system automating prior authorization for cancer treatments with deep clinical knowledge retrieval.",
+                accent: "#8b5cf6",
+              },
+              {
+                name: "Med Adherence",
+                domain: "Digital Health",
+                tagline: "ML-driven patient intervention system",
+                metrics: ["HIPAA/TCPA", "XGBoost ML", "CMS-Ready"],
+                desc: "Intelligent medication adherence with predictive modeling and compliant patient outreach automation.",
+                accent: "#3b82f6",
+              },
+              {
+                name: "StormOS CRM",
+                domain: "SaaS",
+                tagline: "21-feature AI roofing CRM",
+                metrics: ["21 Features", "4-Week Ship", "Vercel Live"],
+                desc: "End-to-end contractor management with AI job estimation, weather integration, and client portal.",
+                accent: "#f59e0b",
+              },
+              {
+                name: "Trading Bots",
+                domain: "Systems / Rust",
+                tagline: "Sub-millisecond market making engine",
+                metrics: ["Sub-ms Latency", "Lock-Free", "Rust-Native"],
+                desc: "High-frequency market making with lock-free concurrency, zero-copy deserialization, and real-time order management.",
+                accent: "#ef4444",
+              },
+              {
+                name: "Content Intelligence",
+                domain: "AI / Media",
+                tagline: "3-platform scraping & analysis pipeline",
+                metrics: ["3 Platforms", "Gemini AI", "Auto Pipeline"],
+                desc: "Automated content intelligence pipeline with multi-platform scraping, Gemini-powered analysis, and trend detection.",
+                accent: "#ec4899",
+              },
+              {
+                name: "Antigravity",
+                domain: "Generative AI",
+                tagline: "Autonomous AI influencer factory",
+                metrics: ["Full Autonomy", "Multi-Platform", "AI Content"],
+                desc: "Autonomous content generation and publishing system creating AI-driven influencer content across social platforms.",
+                accent: "#6366f1",
+              },
+            ].map((project, i) => (
+              <div
+                key={i}
+                className="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-default"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = project.accent + "66";
+                  e.currentTarget.style.boxShadow = `0 20px 40px -12px ${project.accent}25, 0 0 20px ${project.accent}15`;
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${project.accent}08 0%, transparent 60%)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                }}
+              >
+                {/* Top accent line */}
+                <div
+                  className="absolute top-0 left-6 right-6 h-px opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: `linear-gradient(90deg, transparent, ${project.accent}, transparent)` }}
+                />
+
+                {/* Domain tag */}
+                <div
+                  className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase mb-4"
+                  style={{
+                    background: project.accent + "15",
+                    color: project.accent,
+                    border: `1px solid ${project.accent}30`,
+                  }}
+                >
+                  {project.domain}
+                </div>
+
+                {/* Project name & tagline */}
+                <h3 className="text-lg font-bold text-white mb-1 group-hover:text-white transition-colors">{project.name}</h3>
+                <p className="text-sm text-white/40 mb-4 leading-snug">{project.tagline}</p>
+
+                {/* Metrics */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.metrics.map((metric, j) => (
+                    <span
+                      key={j}
+                      className="px-2.5 py-1 rounded-md text-[10px] font-semibold tracking-wide bg-white/[0.06] border border-white/[0.06] transition-all duration-500"
+                      style={{ color: project.accent + "cc" }}
+                    >
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-white/35 leading-relaxed">{project.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
