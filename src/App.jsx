@@ -69,9 +69,18 @@ function Section({ children, className = "", id }) {
 function GlassCard({ children, className = "", hover = true }) {
   return (
     <div
-      className={`relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl ${hover ? "transition-all duration-500 hover:border-cyan-500/40 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1" : ""} ${className}`}
+      className={`relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 ${hover ? "hover:border-cyan-500/40 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1" : ""} ${className}`}
     >
       {children}
+    </div>
+  );
+}
+
+// ── Gradient Divider ──
+function GradientDivider() {
+  return (
+    <div className="relative z-10 flex items-center justify-center py-2">
+      <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
     </div>
   );
 }
@@ -86,7 +95,7 @@ function FAQItem({ q, a }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 text-left text-white/90 hover:text-cyan-400 transition-colors duration-300"
+        className="w-full min-h-11 flex items-center justify-between p-5 text-left text-white/90 hover:text-cyan-400 transition-all duration-300"
       >
         <span className="text-base font-medium pr-4">{q}</span>
         <ChevronDown
@@ -178,12 +187,12 @@ export default function AIConsultingLanding() {
             ))}
             <a
               href="#contact"
-              className="px-5 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-cyan-500/20"
+              className="px-5 py-2 min-h-11 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-cyan-500/20 flex items-center"
             >
               Book a Call
             </a>
           </div>
-          <button className="md:hidden text-white/70" onClick={() => setMobileMenu(!mobileMenu)}>
+          <button className="md:hidden text-white/70 min-h-11 min-w-11 flex items-center justify-center" onClick={() => setMobileMenu(!mobileMenu)}>
             <div className="w-6 flex flex-col gap-1.5">
               <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileMenu ? "rotate-45 translate-y-2" : ""}`} />
               <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileMenu ? "opacity-0" : ""}`} />
@@ -259,7 +268,7 @@ export default function AIConsultingLanding() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-4 leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-4 leading-relaxed">
             From prototype to production — enterprise AI systems that deliver measurable ROI. Built by engineers, not prompt hobbyists.
           </p>
 
@@ -273,14 +282,14 @@ export default function AIConsultingLanding() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#contact"
-              className="group px-8 py-4 rounded-full font-semibold text-base bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center gap-2"
+              className="group px-8 py-4 min-h-11 rounded-full font-semibold text-base bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center gap-2"
             >
               Book a Free Discovery Call
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a
               href="#case-study"
-              className="px-8 py-4 rounded-full font-semibold text-base border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 flex items-center gap-2"
+              className="px-8 py-4 min-h-11 rounded-full font-semibold text-base border border-white/15 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 flex items-center gap-2"
             >
               <Play className="w-4 h-4" />
               See Case Study
@@ -300,6 +309,8 @@ export default function AIConsultingLanding() {
         </div>
       </header>
 
+      <GradientDivider />
+
       {/* ━━━ CREDIBILITY BAR ━━━ */}
       <Section className="relative z-10 py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -315,7 +326,7 @@ export default function AIConsultingLanding() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] text-white/50 text-sm font-medium hover:border-cyan-500/30 hover:text-cyan-400 hover:bg-cyan-500/5 transition-all duration-500"
+                className="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] text-white/70 text-sm font-medium hover:border-cyan-500/30 hover:text-cyan-400 hover:bg-cyan-500/5 transition-all duration-300"
               >
                 {item.icon}
                 {item.label}
@@ -324,6 +335,8 @@ export default function AIConsultingLanding() {
           </div>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ SERVICES ━━━ */}
       <Section id="services" className="relative z-10 py-24 px-6">
@@ -379,7 +392,7 @@ export default function AIConsultingLanding() {
                 </div>
                 <h3 className="text-xl font-bold mb-1">{card.title}</h3>
                 <p className="text-cyan-400 font-semibold text-lg mb-4">{card.price}</p>
-                <p className="text-white/50 text-sm leading-relaxed mb-6 flex-grow">{card.desc}</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-6 flex-grow">{card.desc}</p>
                 <ul className="space-y-2.5 mb-8">
                   {card.features.map((f, j) => (
                     <li key={j} className="flex items-center gap-2.5 text-sm text-white/60">
@@ -390,7 +403,7 @@ export default function AIConsultingLanding() {
                 </ul>
                 <a
                   href="#contact"
-                  className={`text-center py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${card.featured ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20" : "border border-white/15 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/5"}`}
+                  className={`text-center py-4 px-8 min-h-11 rounded-xl text-sm font-semibold transition-all duration-300 ${card.featured ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/20" : "border border-white/15 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/5"}`}
                 >
                   Get Started
                 </a>
@@ -399,6 +412,8 @@ export default function AIConsultingLanding() {
           </div>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ CASE STUDY ━━━ */}
       <Section id="case-study" className="relative z-10 py-24 px-6">
@@ -478,6 +493,8 @@ export default function AIConsultingLanding() {
           </div>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ PORTFOLIO ━━━ */}
       <Section id="portfolio" className="relative z-10 py-24 px-6">
@@ -614,6 +631,8 @@ export default function AIConsultingLanding() {
         </div>
       </Section>
 
+      <GradientDivider />
+
       {/* ━━━ CAPABILITIES ━━━ */}
       <Section className="relative z-10 py-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -642,6 +661,8 @@ export default function AIConsultingLanding() {
           </div>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ HOW WE WORK ━━━ */}
       <Section id="process" className="relative z-10 py-24 px-6">
@@ -678,6 +699,8 @@ export default function AIConsultingLanding() {
         </div>
       </Section>
 
+      <GradientDivider />
+
       {/* ━━━ TECH STACK ━━━ */}
       <Section className="relative z-10 py-24 px-6">
         <div className="max-w-5xl mx-auto">
@@ -693,7 +716,7 @@ export default function AIConsultingLanding() {
             ].map((tool, i) => (
               <div
                 key={i}
-                className="px-5 py-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] text-sm text-white/50 font-medium hover:text-cyan-400 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all duration-500 cursor-default"
+                className="px-5 py-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] text-sm text-white/70 font-medium hover:text-cyan-400 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all duration-300 cursor-default"
               >
                 {tool}
               </div>
@@ -701,6 +724,8 @@ export default function AIConsultingLanding() {
           </div>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ TESTIMONIAL ━━━ */}
       <Section className="relative z-10 py-24 px-6">
@@ -726,6 +751,8 @@ export default function AIConsultingLanding() {
           </GlassCard>
         </div>
       </Section>
+
+      <GradientDivider />
 
       {/* ━━━ FAQ ━━━ */}
       <Section id="faq" className="relative z-10 py-24 px-6">
@@ -759,6 +786,8 @@ export default function AIConsultingLanding() {
         </div>
       </Section>
 
+      <GradientDivider />
+
       {/* ━━━ CTA FOOTER ━━━ */}
       <Section id="contact" className="relative z-10 py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -782,7 +811,7 @@ export default function AIConsultingLanding() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative mb-10">
             <a
               href="mailto:jcanales07@gmail.com?subject=AI%20Consulting%20Inquiry"
-              className="group px-10 py-4 rounded-full font-semibold text-base bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center gap-2"
+              className="group px-8 py-4 min-h-11 rounded-full font-semibold text-base bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center gap-2"
             >
               <Mail className="w-5 h-5" />
               Get in Touch
