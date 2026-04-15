@@ -325,7 +325,7 @@ export default function AIConsultingLanding() {
               { icon: <Shield className="w-5 h-5" />, label: "Production Grade" },
             ].map((item, i) => (
               <div
-                key={i}
+                key={item.label}
                 className="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] text-white/70 text-sm font-medium hover:border-cyan-500/30 hover:text-cyan-400 hover:bg-cyan-500/5 transition-all duration-300"
               >
                 {item.icon}
@@ -377,9 +377,9 @@ export default function AIConsultingLanding() {
                 accent: "from-violet-500/20 to-violet-500/0",
                 border: "hover:border-violet-500/40",
               },
-            ].map((card, i) => (
+            ].map((card) => (
               <GlassCard
-                key={i}
+                key={card.title}
                 className={`p-8 flex flex-col ${card.border} ${card.featured ? "md:-translate-y-4 border-blue-500/20 ring-1 ring-blue-500/10" : ""}`}
               >
                 {card.featured && (
@@ -394,8 +394,8 @@ export default function AIConsultingLanding() {
                 <p className="text-cyan-400 font-semibold text-lg mb-4">{card.price}</p>
                 <p className="text-white/70 text-sm leading-relaxed mb-6 flex-grow">{card.desc}</p>
                 <ul className="space-y-2.5 mb-8">
-                  {card.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2.5 text-sm text-white/60">
+                  {card.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2.5 text-sm text-white/60">
                       <Check className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                       {f}
                     </li>
@@ -465,8 +465,8 @@ export default function AIConsultingLanding() {
                 { num: 126, suffix: "", label: "Tests Added", icon: <Check className="w-5 h-5" />, color: "text-emerald-400" },
                 { num: 15, suffix: "", label: "Domains Integrated", icon: <Globe className="w-5 h-5" />, color: "text-blue-400" },
                 { num: 5, suffix: "", label: "Sports Leagues Live", icon: <TrendingUp className="w-5 h-5" />, color: "text-violet-400" },
-              ].map((m, i) => (
-                <GlassCard key={i} className="p-5 flex items-center gap-5">
+              ].map((m) => (
+                <GlassCard key={m.label} className="p-5 flex items-center gap-5">
                   <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${m.color}`}>
                     {m.icon}
                   </div>
@@ -573,9 +573,9 @@ export default function AIConsultingLanding() {
                 desc: "Autonomous content generation and publishing system creating AI-driven influencer content across social platforms.",
                 accent: "#6366f1",
               },
-            ].map((project, i) => (
+            ].map((project) => (
               <div
-                key={i}
+                key={project.title}
                 className="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-default"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = project.accent + "66";
@@ -612,9 +612,9 @@ export default function AIConsultingLanding() {
 
                 {/* Metrics */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.metrics.map((metric, j) => (
+                  {project.metrics.map((metric) => (
                     <span
-                      key={j}
+                      key={metric}
                       className="px-2.5 py-1 rounded-md text-[10px] font-semibold tracking-wide bg-white/[0.06] border border-white/[0.06] transition-all duration-500"
                       style={{ color: project.accent + "cc" }}
                     >
@@ -652,8 +652,8 @@ export default function AIConsultingLanding() {
               { icon: <Database className="w-6 h-6" />, label: "Enterprise Architecture" },
               { icon: <GitBranch className="w-6 h-6" />, label: "CI/CD & DevOps" },
               { icon: <Monitor className="w-6 h-6" />, label: "Real-time Monitoring" },
-            ].map((cap, i) => (
-              <GlassCard key={i} className="p-5 flex flex-col items-center text-center gap-3">
+            ].map((cap) => (
+              <GlassCard key={cap.label} className="p-5 flex flex-col items-center text-center gap-3">
                 <div className="text-cyan-400">{cap.icon}</div>
                 <span className="text-xs sm:text-sm font-medium text-white/70">{cap.label}</span>
               </GlassCard>
@@ -680,8 +680,8 @@ export default function AIConsultingLanding() {
                 { step: "02", title: "AI Audit", time: "2 weeks", desc: "Deep dive into your processes. Deliverable: ranked opportunity map with ROI estimates.", icon: <Target className="w-5 h-5" /> },
                 { step: "03", title: "Implementation", time: "4–8 weeks", desc: "Build, test, and deploy. Production-grade with monitoring, docs, and training.", icon: <Code2 className="w-5 h-5" /> },
                 { step: "04", title: "Optimization", time: "Ongoing", desc: "Continuous improvement. New automations, performance tuning, scaling support.", icon: <TrendingUp className="w-5 h-5" /> },
-              ].map((s, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center">
+              ].map((s) => (
+                <div key={s.step} className="relative flex flex-col items-center text-center">
                   <div
                     className="w-16 h-16 rounded-2xl bg-gradient-to-b from-cyan-500/20 to-transparent border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-5 relative z-10"
                     style={{ animation: "pulse-glow 4s ease-in-out infinite", animationDelay: `${i * 0.5}s` }}
@@ -713,9 +713,9 @@ export default function AIConsultingLanding() {
               "Claude", "GPT-4", "Gemini", "Python", "TypeScript", "Docker",
               "PostgreSQL", "Redis", "Prometheus", "Grafana", "GitHub Actions",
               "TradingView", "Telegram", "FastAPI", "React", "AWS",
-            ].map((tool, i) => (
+            ].map((tool) => (
               <div
-                key={i}
+                key={tool}
                 className="px-5 py-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] text-sm text-white/70 font-medium hover:text-cyan-400 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all duration-300 cursor-default"
               >
                 {tool}
@@ -832,8 +832,8 @@ export default function AIConsultingLanding() {
               { value: <Counter end={10} suffix="M+" />, label: "Tokens / Day" },
               { value: <Counter end={126} suffix="" />, label: "Tests Written" },
               { value: <Counter end={33} suffix="" />, label: "Bugs Squashed" },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
+            ].map((s) => (
+              <div key={s.label} className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-cyan-400">{s.value}</div>
                 <div className="text-xs text-white/30 mt-1">{s.label}</div>
               </div>
